@@ -26,7 +26,7 @@ git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른�
     │   │   ├── checkpoint.pth
     │   │   └── statistics.json
     │   ├── epoch1
-    │   │   ├── checkpoint_epoch1.pth
+    │   │   ├── checkpoint-epoch1.pth
     │   │   └── statistics.json
     │   ├── epoch2 ...
     │   └── best

@@ -153,4 +153,4 @@ trainer.resume_checkpoint(
 )
 
 
-trainer.train()
+trainer._make_recons() # reconstruct images of (384, 384)

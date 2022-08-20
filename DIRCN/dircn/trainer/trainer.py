@@ -66,7 +66,7 @@ class Trainer(BaseTrainer):
             mask = mask.type(torch.bool).to(self.device)
             target = target.to(self.device)
 
-            self.optimizer.zero_grad()  # Clear before inputting to version3
+            self.optimizer.zero_grad()  # Clear before inputting to weights
             output = self.model(data, mask)
             loss = self.loss_function(output, target)
             loss.backward()

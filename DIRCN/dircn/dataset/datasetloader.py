@@ -18,7 +18,7 @@ class DatasetLoader(torch.utils.data.Dataset):
         """
         Args:
             datasetcontainer: The datasetcontainer that is to be loaded
-            train_transforms: Transforms the data is gone through before version3 input
+            train_transforms: Transforms the data is gone through before weights input
             target_transforms: Transforms the data is gone through before being ground truths
             img_key: potential key for opening the file
         """

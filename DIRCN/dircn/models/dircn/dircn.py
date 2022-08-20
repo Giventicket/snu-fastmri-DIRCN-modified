@@ -28,13 +28,13 @@ class NormNet(nn.Module):
                  ):
         """
         Args:
-            n (int): the number of channels in the version3
+            n (int): the number of channels in the weights
             n_channels (int): the number of input channels
             groups (int): the number of groups used in the convolutions, needs to dividable with n
             bias (bool): whether to use bias or not
             ratio (float): the ratio for squeeze and excitation
             interconnections (bool): whether to enable interconnection
-            make_interconnections (bool): whether to make the version3 accept interconnection input
+            make_interconnections (bool): whether to make the weights accept interconnection input
         """
         super().__init__()
 
@@ -111,7 +111,7 @@ class NormNet(nn.Module):
     def forward(self, x: torch.Tensor, internals: Optional[List[torch.Tensor]] = None) -> torch.Tensor:
         if not x.shape[-1] == 2:
             raise ValueError("Last dimension must be 2 for complex.")
-        # get shapes for the version3 and normalize
+        # get shapes for the weights and normalize
         x = self.complex_to_chan_dim(x) # (B, 2 * C, H, W)
         x, mean, std = self.norm(x) # (B, 2 * C, H, W), (B, 2 * C, 1, 1), (B, 2 * C, 1, 1)
         x, pad_sizes = self.pad(x) # (B, 2 * C, 400, 400)
@@ -144,7 +144,7 @@ class NormNet_image(nn.Module):
                  ):
         """
         Args:
-            n (int): the number of channels in the version3
+            n (int): the number of channels in the weights
             groups (int): the number of groups used in the convolutions, needs to dividable with n
             bias (bool): whether to use bias or not
             ratio (float): the ratio for squeeze and excitation
@@ -204,7 +204,7 @@ class NormNet_image(nn.Module):
         return x[..., h_pad[0]: h_mult - h_pad[1], w_pad[0]: w_mult - w_pad[1]]
 
     def forward(self, x: torch.Tensor, internals: Optional[List[torch.Tensor]] = None) -> torch.Tensor:
-        # get shapes for the version3 and normalize
+        # get shapes for the weights and normalize
         x, mean, std = self.norm(x) # (B, C, H, W), (B, C, 1, 1), (B, C, 1, 1)
         x, pad_sizes = self.pad(x) # (B, C, 400, 400)
 
@@ -220,7 +220,7 @@ class NormNet_image(nn.Module):
 class SensitivityModel(nn.Module):
     """
     Model for learning sensitivity estimation from k-space data.
-    This version3 applies an IFFT to multichannel k-space data and then a U-Net based version3
+    This weights applies an IFFT to multichannel k-space data and then a U-Net based weights
     to the coil images to estimate coil sensitivities.
     """
 
@@ -383,8 +383,8 @@ class DIRCN(nn.Module):
 class ImageBlock(nn.Module):
     """
     Model block for end-to-end variational network.
-    This version3 applies a combination of soft data consistency with the input
-    version3 as a regularizer. A series of these blocks can be stacked to form
+    This weights applies a combination of soft data consistency with the input
+    weights as a regularizer. A series of these blocks can be stacked to form
     the full variational network.
     """
 
@@ -396,7 +396,7 @@ class ImageBlock(nn.Module):
                  ):
         """
         Args:
-            version3: Module for "regularization" component of variational
+            weights: Module for "regularization" component of variational
                 network.
         """
         super().__init__()

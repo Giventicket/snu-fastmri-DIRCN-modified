@@ -47,9 +47,9 @@ class ConfigReader(object):
         """
         Create optimizer:
         Args:
-            model_params: The paramters for the version3 the optimizer is for
+            model_params: The paramters for the weights the optimizer is for
         returns:
-            optimizer: The optmizer for the given version3 params
+            optimizer: The optmizer for the given weights params
         """
         optim = self.config['optimizer']
         optimizer = getattr(torch.optim, optim['type'])

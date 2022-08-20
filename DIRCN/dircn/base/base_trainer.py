@@ -30,7 +30,7 @@ class BaseTrainer:
                  ):
         """
         Args:
-            model (torch.nn.Module): The version3 to be trained
+            model (torch.nn.Module): The weights to be trained
             loss_function (MultiLoss): The loss function or loss function class
             metric_ftns (MultiMetric, Dict[str, callable]): Dict or Multimetric for the metrics to be evaluated during validation
             config (dict): dict of configs
@@ -237,7 +237,6 @@ class BaseTrainer:
                                 'optimizer parameters are not resumed.')
         else:
             self.optimizer.load_state_dict(checkpoint['optimizer'])
-
 
         # load lr_scheduler state from checkpoint only when lr_scheduler type is not changed.
         if checkpoint['config']['lr_scheduler']['type'] != self.config['lr_scheduler']['type']:

@@ -86,11 +86,11 @@ modification과 model에 관련해서는 차후 ppt에서 더욱 자세하게 �
 ```
 # train(training 이후 validation과 test set에 대한 reconstruction도 차례로 진행함)
 cd /root/fastMRI/DIRCN/
-python /root/fastMRI/DIRCN/train.py
+python train.py
 
 # reconstruction
 cd /root/fastMRI/DIRCN/
-python /root/fastMRI/DIRCN/recon.py
+python recon.py
 
 # evaluate
 cd /root/fastMRI/DIRCN/

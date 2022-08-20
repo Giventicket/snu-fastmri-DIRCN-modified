@@ -1,4 +1,3 @@
-
 # DIRCN(modified)
 github 주소: https://github.com/Giventicket/snu-fastmri-modified-DIRCN
 <br/>
@@ -8,6 +7,7 @@ code baseline: https://github.com/JonOttesen/DIRCN
 ## directory
 
 git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른점 양해부탁드립니다.
+최종모델은 /root/fastMRI/DIRCN/weights/best-validation/checkpoint-best.pth에 저장해뒀습니다.
 ```
 ├── DIRCN
     ├── dircn

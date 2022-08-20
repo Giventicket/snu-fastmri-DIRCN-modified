@@ -1,0 +1,43 @@
+{
+
+    "name": "DIRCN for FastMRI",
+    "n_gpu": 1,
+
+    "arch": {
+        "type": "DIRCN_v0",
+        "args": {}
+    },
+    "data_loader": {
+        "type": "FastMRI",
+        "args":{
+            "data_dir": "./docs",
+            "batch_size": 1,
+            "shuffle": false,
+            "num_workers": 11
+        }
+    },
+    "optimizer": {
+        "type": "Adam",
+        "args":{
+            "lr": 1e-3,
+            "beta1": 0.9,
+            "beta2": 0.999,
+            "amsgrad": true,
+            "weight_decay": 0
+        }
+    },
+    "lr_scheduler": {
+        "type": "MultiStepLR",
+        "args": {
+            "milestones": [30, 90],
+            "gamma": 0.1
+        }
+    },
+    "trainer": {
+        "epochs": 20,
+        "iterative": true,
+        "iterations": 120,
+        "save_dir": "/root/fastMRI/DIRCN",
+        "save_period": 1
+    }
+}

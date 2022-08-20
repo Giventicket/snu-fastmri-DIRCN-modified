@@ -11,13 +11,13 @@ git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른�
 ```
 ├── DIRCN
     ├── dircn
-    │   ├── base
-    │   ├── config
-    │   ├── dataset
-    │   ├── fastmri
-    │   ├── models
-    │   ├── preprocessing
-    │   ├── trainer
+    │   ├── base - BaseTrainer가 구현되어있음. 기본적인 function을 제외하고 구현해야할 부분을 abstract method로 남겨둠
+    │   ├── config - json 형식의 config 파일을 업로드하여 runtime에서 args value를 확인할 수 있도록함.
+    │   ├── dataset - dataset, dataloader를 관할하는 부분
+    │   ├── fastmri - fastmri에서 주로 사용되는 coil_combine, fftc, math등을 구현함.
+    │   ├── models - DIRCN을 구성하는 모듈을 low/high level에 따라 쪼개어 파일로 저장함, 다양한 ssim loss를 구현함.
+    │   ├── preprocessing - data의 전처리를 담당하는 부분, kspace downsampling, image_cropping 등 data transform에서 활용됨.
+    │   ├── trainer - one epoch 당 train, validation, test를 진행할 수 있도록 함수를 구현함. 특히 test phase에서는 reconstruction h5 파일을 result/DIRCN에 dump함
     │   ├── metrics
     │   ├── __init__.py
     │   └── logger.py
@@ -29,13 +29,13 @@ git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른�
     │   │   ├── checkpoint-epoch1.pth
     │   │   └── statistics.json
     │   ├── epoch2 ...
-    │   └── best
-    │   │   ├── checkpoint.pth
-    │   │   └── statistics.json
-    ├── train.py
-    ├── recon.py
-    ├── eval.py
-    ├── dircn.json
+    │   └── best-validation
+    │       ├── checkpoint-best.pth
+    │       └── statistics.json
+    ├── train.py 
+    ├── recon.py - best-validation 모델을 활용해 leaderboard set의 reconstruction을 진행함
+    ├── eval.py - reconstructed h5 파일과 leaderboard ground truth를 활용해서 masking을 활용한 leaderboard evaluation을 진행함.
+    ├── dircn.json - train에 필요한 다양한 hyperparameters가 들어가있음.
     ├── README.md
     └── .gitignore
         
@@ -46,6 +46,8 @@ git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른�
 train data - [brain101.h5, ..., brain407.h5]
 validation data - [brain1.h5, ..., brain100.h5]
 test data - [brain_test1.h5, ..., brain_test58.h5]
+
+# train, val set을 8:2로 분할하여 활용함.
 ```
 
 ## training method

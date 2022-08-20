@@ -65,7 +65,7 @@ model = DIRCN(
     interconnections=True,
     )
 ```
-1. DIRCN에 관련해서 pretrained model을 찾지못해서 위와 같이구성된 모델을 전체 주어진 set(train data, validation data)을 갖고 50 에포크를 training시켜 pretrained weight을 생성하였습니다. 이때는 단순히 train loss를 기준으로 goodness를 판단하였습니다.
+1. DIRCN에 관련해서 pretrained model을 찾지 못하여 위와 같이구성된 모델을 전체 주어진 set(train data, validation data)을 갖고 50 에포크를 training시켜 pretrained weight을 생성하였습니다. 이때는 단순히 train loss를 기준으로 goodness를 판단하였습니다.
 2. 1.에서 얻은 pretrained model을 활용해서 train data, validation data, test data를 갖고 본격적인 training을 진행하였습니다. validation loss를 기준으로 learning rate, mini batch을 바꿔가며 train을 진행하였습니다. 이때 test data를 전부 순회하면서 reconstruction image를 생성했고 leaderboard ssim value를 평가하였습니다.
 ```
         freeze = []

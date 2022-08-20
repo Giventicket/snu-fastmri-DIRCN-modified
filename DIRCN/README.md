@@ -41,16 +41,33 @@ git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른�
         
 ```
 
-## train/validation/test
+## 1. train/val/test
 ```
-train data - [brain101.h5, ..., brain407.h5]
-validation data - [brain1.h5, ..., brain100.h5]
-test data - [brain_test1.h5, ..., brain_test58.h5]
+train data - [brain101.h5, ..., brain407.h5]: /root/input/train/image, /root/input/train/kspace
+validation data - [brain1.h5, ..., brain100.h5]: /root/input/val/image, /root/input/val/kspace
+test data - [brain_test1.h5, ..., brain_test58.h5]: /root/input/leaderboard/image, /root/input/leaderboard/kspace
 
 # train, val set을 8:2로 분할하여 활용함.
 ```
 
-## training method
+## 2. how to start!(배포받은 서버기준)
+```
+# train(train data fitting 이후 validation data evaluation과 test data에 대한 reconstruction도 차례로 진행함)
+cd /root/fastMRI/DIRCN/
+python train.py
+
+# reconstruction(test data에 대한 reconstruction)
+cd /root/fastMRI/DIRCN/
+python recon.py
+
+# evaluate(dumping된 reconstruction h5파일에 대한 evaluation)
+cd /root/fastMRI/DIRCN/
+python eval.py
+
+# reconstruction로 파일을 dump한 이후 evaluation을 진행하는 구조입니다.
+```
+
+## 3. training method
 ```
 model = DIRCN(
     num_cascades=5,
@@ -80,23 +97,6 @@ model = DIRCN(
 4. 3.이 과적합을 일으키면 i_cascades의 weight을 freeze하고 sens_net을 훈련시켰습니다.
 5. 3.과 4.를 randomly 실행하였고 num_cascades를 늘려나가는 과정에서 4.의 cuda out of memory 에러가 발생하면 3.만 진행하였습니다
 
-## our modification
+## 4. our modification
 ![image](https://user-images.githubusercontent.com/39179946/185732142-44dcc3fb-d541-4b9d-bbc0-222c3e613780.png)
 modification과 model에 관련해서는 차후 ppt에서 더욱 자세하게 설명하도록 하겠습니다.
-
-## how to start!(배포받은 서버기준)
-```
-# train(training 이후 validation과 test set에 대한 reconstruction도 차례로 진행함)
-cd /root/fastMRI/DIRCN/
-python train.py
-
-# reconstruction
-cd /root/fastMRI/DIRCN/
-python recon.py
-
-# evaluate
-cd /root/fastMRI/DIRCN/
-python eval.py
-
-# reconstruction로 파일을 dump한 이후 evaluation을 진행하는 구조입니다.
-```

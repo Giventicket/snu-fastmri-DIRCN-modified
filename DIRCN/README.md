@@ -28,8 +28,12 @@ git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른�
     │   ├── epoch1
     │   │   ├── checkpoint_epoch1.pth
     │   │   └── statistics.json
-    │   └── epoch2 ...
+    │   ├── epoch2 ...
+    │   └── best
+    │   │   ├── checkpoint.pth
+    │   │   └── statistics.json
     ├── train.py
+    ├── recon.py
     ├── eval.py
     ├── dircn.json
     ├── README.md
@@ -75,4 +79,22 @@ model = DIRCN(
 5. 3.과 4.를 randomly 실행하였고 num_cascades를 늘려나가는 과정에서 4.의 cuda out of memory 에러가 발생하면 3.만 진행하였습니다
 
 ## our modification
+![image](https://user-images.githubusercontent.com/39179946/185732142-44dcc3fb-d541-4b9d-bbc0-222c3e613780.png)
+modification과 model에 관련해서는 차후 ppt에서 더욱 자세하게 설명하도록 하겠습니다.
 
+## how to start!(배포받은 서버기준)
+```
+# train(training 이후 validation과 test set에 대한 reconstruction도 차례로 진행함)
+cd /root/fastMRI/DIRCN/
+python /root/fastMRI/DIRCN/train.py
+
+# reconstruction
+cd /root/fastMRI/DIRCN/
+python /root/fastMRI/DIRCN/recon.py
+
+# evaluate
+cd /root/fastMRI/DIRCN/
+python eval.py
+
+# reconstruction로 파일을 dump한 이후 evaluation을 진행하는 구조입니다.
+```

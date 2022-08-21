@@ -104,5 +104,5 @@ modification과 model에 관련해서는 차후 ppt에서 더욱 자세하게 �
 ## 6. result
 ![leaderboard](https://user-images.githubusercontent.com/39179946/185792619-e7acd1ad-79ac-40c5-a508-eb1c8179cf84.png)
 ```
-[멋진 신세계]팀으로 참가해 top 10으로 leaderboard를 마감했습니다.
+[멋진 신세계]팀으로 참가해 **top 10**으로 leaderboard를 마감했습니다.
 ```

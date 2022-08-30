@@ -99,7 +99,8 @@ model = DIRCN(
 
 ## 5. our modification
 ![image](https://user-images.githubusercontent.com/39179946/185732142-44dcc3fb-d541-4b9d-bbc0-222c3e613780.png)
-modification과 model에 관련해서는 차후 ppt에서 더욱 자세하게 설명하도록 하겠습니다.
+<a href="https://docs.google.com/presentation/d/1s6XkywJpoXexu-rfxcNNh27lKGlHTuzW/edit?usp=sharing&ouid=110533751383005244334&rtpof=true&sd=true">ppt 발표자료 확인하기</a>
+modification과 model에 관련해서는 ppt에 더욱 자세하게 설명했습니다.
 
 ## 6. result
 ![leaderboard](https://user-images.githubusercontent.com/39179946/185792619-e7acd1ad-79ac-40c5-a508-eb1c8179cf84.png)

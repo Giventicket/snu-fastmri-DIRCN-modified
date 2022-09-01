@@ -4,6 +4,8 @@ github 주소: https://github.com/Giventicket/snu-fastmri-modified-DIRCN
 baseline model: A Densely Interconnected Network for Deep Learning Accelerated MRI(https://arxiv.org/abs/2207.02073)
 <br/>
 code baseline: https://github.com/JonOttesen/DIRCN
+<br/>
+발표자료: <a href="https://docs.google.com/presentation/d/1s6XkywJpoXexu-rfxcNNh27lKGlHTuzW/edit?usp=sharing&ouid=110533751383005244334&rtpof=true&sd=true">ppt 발표자료 확인하기</a>
 ## 1. directory
 
 git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른점 양해부탁드립니다.
@@ -99,7 +101,6 @@ model = DIRCN(
 
 ## 5. our modification
 ![image](https://user-images.githubusercontent.com/39179946/185732142-44dcc3fb-d541-4b9d-bbc0-222c3e613780.png)
-<a href="https://docs.google.com/presentation/d/1s6XkywJpoXexu-rfxcNNh27lKGlHTuzW/edit?usp=sharing&ouid=110533751383005244334&rtpof=true&sd=true">ppt 발표자료 확인하기</a>
 modification과 model에 관련해서는 ppt에 더욱 자세하게 설명했습니다.
 
 ## 6. result

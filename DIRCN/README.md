@@ -6,6 +6,22 @@ baseline model: A Densely Interconnected Network for Deep Learning Accelerated M
 code baseline: https://github.com/JonOttesen/DIRCN
 <br/>
 발표자료: <a href="https://docs.google.com/presentation/d/1s6XkywJpoXexu-rfxcNNh27lKGlHTuzW/edit?usp=sharing&ouid=110533751383005244334&rtpof=true&sd=true">ppt 발표자료 확인하기</a>
+
+## 0. result
+![leaderboard](https://user-images.githubusercontent.com/39179946/185792619-e7acd1ad-79ac-40c5-a508-eb1c8179cf84.png)
+```
+[멋진 신세계]팀으로 참가해 **top 10**으로 leaderboard를 마감했습니다.
+종합성적 6위로 마감하여 **특별상**을 수상했습니다.
+```
+
+<p align = "center">
+    <img src = "https://user-images.githubusercontent.com/39179946/216746521-1bb42faa-44a1-41e8-bb3a-a4cd0caad930.jpg" height="500px" width="300px"></img>
+    <img src = "https://user-images.githubusercontent.com/39179946/216746526-74fd470d-e88d-4f17-a342-5b0d6351fafa.jpg" height="500px" width="500px"></img>
+</p>
+
+
+
+
 ## 1. directory
 
 git에 공지된 최종 제출 가이드라인과 directory의 구조가 다른점 양해부탁드립니다.
@@ -102,9 +118,3 @@ model = DIRCN(
 ## 5. our modification
 ![image](https://user-images.githubusercontent.com/39179946/185732142-44dcc3fb-d541-4b9d-bbc0-222c3e613780.png)
 modification과 model에 관련해서는 ppt에 더욱 자세하게 설명했습니다.
-
-## 6. result
-![leaderboard](https://user-images.githubusercontent.com/39179946/185792619-e7acd1ad-79ac-40c5-a508-eb1c8179cf84.png)
-```
-[멋진 신세계]팀으로 참가해 **top 10**으로 leaderboard를 마감했습니다.
-```

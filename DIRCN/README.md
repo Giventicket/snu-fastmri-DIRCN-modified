@@ -5,6 +5,7 @@ baseline model: A Densely Interconnected Network for Deep Learning Accelerated M
 <br/>
 code baseline: https://github.com/JonOttesen/DIRCN
 <br/>
+
 발표자료: <a href="https://docs.google.com/presentation/d/1s6XkywJpoXexu-rfxcNNh27lKGlHTuzW/edit?usp=sharing&ouid=110533751383005244334&rtpof=true&sd=true">ppt 발표자료 확인하기</a>
 
 ## 0. result
